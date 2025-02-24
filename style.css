@@ -26,6 +26,7 @@ body {
     line-height: 1.6;
     color: var(--primary-color);
     background-color: var(--secondary-color);
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .container {
@@ -34,6 +35,7 @@ body {
     padding: 20px;
 }
 
+/* Header */
 header {
     background-color: rgba(27, 27, 26, 0.9); /* Semi-transparent dark header */
     position: sticky;
@@ -73,6 +75,7 @@ nav a:hover {
     color: var(--accent-color);
 }
 
+/* Hero Section */
 #hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/hero_image.jpg");
     background-size: cover;
@@ -108,6 +111,7 @@ nav a:hover {
     background-color: #b59400;
 }
 
+/* Sections */
 section {
     padding: 80px 0;
 }
@@ -120,6 +124,7 @@ h2 {
     color: var(--primary-color);
 }
 
+/* Event and Poster Grids */
 .event-grid, .poster-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -147,32 +152,117 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* Updated Footer with Reduced Opacity and Blur Effect */
+/* No Events Styling */
+.event.no-events {
+    text-align: center;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.event.no-events img {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+
+.event.no-events h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.event.no-events p {
+    font-family: var(--font-primary);
+    font-size: 1.2em;
+    color: var(--primary-color);
+    opacity: 0.8;
+}
+
+/* Footer */
 footer {
     background-color: rgba(209, 176, 0, 0.1); /* Yellow with 10% opacity */
     color: var(--secondary-color);
-    padding: 5px 0;
+    padding: 20px 0;
     text-align: center;
-    backdrop-filter: blur(122px); /* Add blur effect */
-    -webkit-backdrop-filter: blur(122px); /* For Safari support */
+    backdrop-filter: blur(10px); /* Add blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
 }
 
 .social-links img {
-    width: 80px;
-    margin-top: 50px;
+    width: 30px;
+    margin-top: 10px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    header .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    header nav li {
+        margin: 10px 0;
+    }
+
+    #hero {
+        padding: 80px 0;
+    }
+
     .hero-content h1 {
-        font-size: 3em;
+        font-size: 2.5em; /* Smaller font size for mobile */
     }
 
     .tagline {
-        font-size: 1.2em;
+        font-size: 1.2em; /* Smaller font size for mobile */
+    }
+
+    .cta-button {
+        padding: 10px 20px; /* Smaller button for mobile */
+    }
+
+    section {
+        padding: 40px 0;
     }
 
     .event-grid, .poster-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column for mobile */
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .event, .poster {
+        padding: 15px;
+    }
+
+    .event img, .poster img {
+        margin-bottom: 10px;
+    }
+
+    footer {
+        padding: 15px 0;
+    }
+
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-links img {
+        width: 25px; /* Smaller icon for mobile */
+        margin-top: 10px;
     }
 }
